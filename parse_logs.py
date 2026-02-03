@@ -149,8 +149,7 @@ def format_summary(report):
 
 
 def format_report(summaries, py_version):
-    template = textwrap.dedent(
-        """\
+    template = textwrap.dedent("""\
         <details><summary>Python {py_version} Test Summary</summary>
 
         ```
@@ -158,8 +157,7 @@ def format_report(summaries, py_version):
         ```
 
         </details>
-        """
-    )
+        """)
     # can't use f-strings because that would format *before* the dedenting
     message = template.format(summaries="\n".join(summaries), py_version=py_version)
     return message
@@ -228,8 +226,7 @@ def compressed_report(reports, max_chars, **formatter_kwargs):
 
 
 def format_collection_error(error, **formatter_kwargs):
-    return textwrap.dedent(
-        """\
+    return textwrap.dedent("""\
         <details><summary>Python {py_version} Test Summary</summary>
 
         {name} failed:
@@ -238,8 +235,7 @@ def format_collection_error(error, **formatter_kwargs):
         ```
 
         </details>
-        """
-    ).format(py_version=py_version, name=error.name, traceback=error.repr_)
+        """).format(py_version=py_version, name=error.name, traceback=error.repr_)
 
 
 if __name__ == "__main__":
